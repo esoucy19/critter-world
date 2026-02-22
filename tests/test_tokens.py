@@ -26,3 +26,11 @@ def test_ignores_surrounding_whitespace():
     tokenizer = Tokenizer()
     token = tokenizer.tokenize(' + ')[0]
     assert token.type == Type.PLUS
+
+
+@pytest.mark.skip
+def test_tokenizes_multiple_tokens():
+    """Tokenizes multiple tokens."""
+    tokenizer = Tokenizer()
+    tokens = tokenizer.tokenize('1 + 2')
+    assert [t.type for t in tokens] == [Type.NUMBER, Type.PLUS, Type.NUMBER]
