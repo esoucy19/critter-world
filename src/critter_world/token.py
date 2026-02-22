@@ -99,5 +99,7 @@ class Tokenizer:
                 return [Token(Type.MINUS)]
             case '*':
                 return [Token(Type.MUL)]
+            case num if num.isdecimal():
+                return [Token(Type.NUMBER)]
             case _:
                 return [Token(Type.UNKNOWN)]
