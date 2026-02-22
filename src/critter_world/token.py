@@ -91,8 +91,10 @@ class Tokenizer:
         RETURN:
             list[Token]: The resulting tokens.
         """
-        if string == '+':
-            return [Token(Type.PLUS)]
-        if string == '-':
-            return [Token(Type.MINUS)]
+        match string:
+            case '+':
+                return [Token(Type.PLUS)]
+            case '-':
+                return [Token(Type.MINUS)]
+
         return [Token(Type.MUL)]
