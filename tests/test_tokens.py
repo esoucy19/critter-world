@@ -12,13 +12,15 @@ from critter_world.token import Tokenizer, Type
         ('%unknown_token$', Type.UNKNOWN),
     ],
 )
-def test_tokenize_single_token(string: str, expected: Type):
-    """Tokenize single tokens.
-
-    ('*', Type.MUL),
-    ('/', Type.DIV),
-    ('-->', Type.MUL),
-    """
+def test_tokenizes_single_token(string: str, expected: Type):
+    """Tokenize single tokens."""
     tokenizer = Tokenizer()
     token = tokenizer.tokenize(string)[0]
     assert token.type == expected
+
+
+def test_ignores_surrounding_whitespace():
+    """Ignores surrounding whitespace."""
+    tokenizer = Tokenizer()
+    token = tokenizer.tokenize(' + ')[0]
+    assert token.type == Type.PLUS

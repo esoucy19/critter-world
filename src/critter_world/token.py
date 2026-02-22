@@ -92,7 +92,7 @@ class Tokenizer:
         RETURN:
             list[Token]: The resulting tokens.
         """
-        match string:
+        match string.strip():
             case '+':
                 return [Token(Type.PLUS)]
             case '-':
