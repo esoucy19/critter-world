@@ -93,4 +93,6 @@ class Tokenizer:
         """
         if string == '+':
             return [Token(Type.PLUS)]
-        return [Token(Type.MINUS)]
+        if string == '-':
+            return [Token(Type.MINUS)]
+        return [Token(Type.MUL)]
