@@ -9,6 +9,7 @@ from critter_world.token import Tokenizer, Type
         ('+', Type.PLUS),
         ('-', Type.MINUS),
         ('*', Type.MUL),
+        ('%unknown_token$', Type.UNKNOWN),
     ],
 )
 def test_tokenize_single_token(string: str, expected: Type):

@@ -65,6 +65,7 @@ class Type(Enum):
     COMMENT = auto()
     # misc
     STRING = auto()
+    UNKNOWN = auto()
 
 
 class Token:
@@ -96,5 +97,7 @@ class Tokenizer:
                 return [Token(Type.PLUS)]
             case '-':
                 return [Token(Type.MINUS)]
-
-        return [Token(Type.MUL)]
+            case '*':
+                return [Token(Type.MUL)]
+            case _:
+                return [Token(Type.UNKNOWN)]
